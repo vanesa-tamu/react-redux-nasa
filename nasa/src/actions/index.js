@@ -12,7 +12,8 @@ export function getAPOD(){
 
         axios.get(`https://api.nasa.gov/planetary/apod?api_key=2dYmiqXNAIT4hSBsaxX3FgUx6ndGHOXd3bNVk0MZ&date=1996-12-18`)
             .then(res => {
-                console.log('GET', res)
+                console.log('GET', res.data)
+                dispatch({ type: APOD_SUCCESS, payload: res.data })
             })
             .catch(err => {
                 dispatch({ type: APOD_FAILURE, payload: err})

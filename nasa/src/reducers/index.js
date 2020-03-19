@@ -5,7 +5,7 @@ import {
 } from '../actions/index.js'
 
 const initialState = {
-    nasa: null,
+    nasa: {}, //note do not put 'null' as initial state
     error: '',
     loading: false
 }
@@ -21,7 +21,7 @@ export const reducer = (state=initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                nasa: action.payload
+                nasa: action.payload //will be an object from GET
             }
         case APOD_FAILURE:
             return {
